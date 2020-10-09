@@ -1,6 +1,7 @@
 # `.new .bak`
 
 ![CI](https://github.com/spenserblack/.new.bak/workflows/CI/badge.svg)
+[![Build Status](https://travis-ci.com/spenserblack/.new.bak.svg?branch=master)](https://travis-ci.com/spenserblack/.new.bak)
 
 Finds all files in a directory with the `.new` extension, adds `.bak` to their corresponding "old"
 files, then strips the `.new` extension.
