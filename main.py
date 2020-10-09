@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 import os
+import re
 from argparse import ArgumentParser
 from glob import glob
+from logging import getLogger
+
+logger = getLogger(__name__)
 
 parser = ArgumentParser()
 parser.add_argument(
@@ -37,3 +41,15 @@ if args.recursive:
 
 files = glob(os.path.join(args.directory, *paths), recursive=args.recursive)
 print("files:", files)
+
+ORIGINAL_FILENAME_GROUP = "original_filename"
+
+filename_re = re.compile(rf"^(?P<{ORIGINAL_FILENAME_GROUP}>.+)(?:\.new)$")
+
+for filename in files:
+    match = filename_re.match(filename)
+    if not match:
+        logger.warning(f'"{filename}" did not match regex')
+        continue
+    original_filename = match.group(ORIGINAL_FILENAME_GROUP)
+    print("original filename:", original_filename)
