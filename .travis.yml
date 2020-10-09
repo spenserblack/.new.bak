@@ -2,9 +2,11 @@ language: python
 python:
   - "3.6"
   - "3.8"
+before_install: pip install poetry
+install: poetry install
 script:
-- isort --check main.py
-- black --check main.py
-- flake8 main.py
+- poetry run isort --check main.py
+- poetry run black --check main.py
+- poetry run flake8 main.py
 notifications:
   email: false
