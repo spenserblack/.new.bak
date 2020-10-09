@@ -1,0 +1,8 @@
+language: python
+python:
+  - "3.6"
+  - "3.8"
+script:
+- isort --check main.py
+- black --check main.py
+- flake8 main.py
