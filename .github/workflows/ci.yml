@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  styling:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: poetry install --no-root
+      - name: isort
+        run: poetry run isort --check main.py
+      - name: black
+        run: poetry run black --check main.py
+      - name: flake8
+        run: poetry run flake8 main.py
