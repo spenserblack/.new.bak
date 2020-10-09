@@ -1,5 +1,7 @@
 #!/usr/bin/env python
+import os
 from argparse import ArgumentParser
+from glob import glob
 
 parser = ArgumentParser()
 parser.add_argument(
@@ -28,3 +30,10 @@ print("directory:", args.directory)
 print("new:", args.new)
 print("bak:", args.bak)
 print("recurse", args.recursive)
+
+paths = [f"*.{args.new}"]
+if args.recursive:
+    paths.insert(0, "**")
+
+files = glob(os.path.join(args.directory, *paths), recursive=args.recursive)
+print("files:", files)
