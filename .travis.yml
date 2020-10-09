@@ -5,7 +5,7 @@ python:
 cache:
   pip: true
 before_install: pip install poetry
-install: poetry install
+install: poetry install --no-root
 script:
 - poetry run isort --check main.py
 - poetry run black --check main.py
