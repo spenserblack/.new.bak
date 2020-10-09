@@ -6,3 +6,5 @@ script:
 - isort --check main.py
 - black --check main.py
 - flake8 main.py
+notifications:
+  email: false
