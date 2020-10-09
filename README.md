@@ -6,6 +6,19 @@
 Finds all files in a directory with the `.new` extension, adds `.bak` to their corresponding "old"
 files, then strips the `.new` extension.
 
+## Usage
+
+```bash
+# see all CLI options
+./main.py -h
+
+# rename files and folders in directory dir
+./main.py dir
+
+# rename files and folders in directory dir recursively
+./main.py -r dir
+```
+
 ## Example
 
 ### Directory Before
