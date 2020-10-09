@@ -1,11 +1,12 @@
 #!/usr/bin/env python
+import logging
 import os
 import re
 from argparse import ArgumentParser
 from glob import glob
-from logging import getLogger
 
-logger = getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 parser = ArgumentParser()
 parser.add_argument(
@@ -30,17 +31,11 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-print("directory:", args.directory)
-print("new:", args.new)
-print("bak:", args.bak)
-print("recurse", args.recursive)
-
 paths = [f"*.{args.new}"]
 if args.recursive:
     paths.insert(0, "**")
 
 files = glob(os.path.join(args.directory, *paths), recursive=args.recursive)
-print("files:", files)
 
 ORIGINAL_FILENAME_GROUP = "original_filename"
 
@@ -52,4 +47,10 @@ for filename in files:
         logger.warning(f'"{filename}" did not match regex')
         continue
     original_filename = match.group(ORIGINAL_FILENAME_GROUP)
-    print("original filename:", original_filename)
+    bak_filename = f"{original_filename}.{args.bak}"
+
+    os.rename(original_filename, bak_filename)
+    logger.info(f'"{original_filename}" renamed to "{bak_filename}"')
+
+    os.rename(filename, original_filename)
+    logger.info(f'"{filename}" renamed to "{original_filename}"')
