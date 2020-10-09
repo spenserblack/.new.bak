@@ -18,9 +18,13 @@ parser.add_argument(
     default="bak",
     help="The placeholder extension of the old files",
 )
+parser.add_argument(
+    "-r", "--recursive", action="store_true", help="Run in sub-directories"
+)
 
 args = parser.parse_args()
 
 print("directory:", args.directory)
 print("new:", args.new)
 print("bak:", args.bak)
+print("recurse", args.recursive)
