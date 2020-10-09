@@ -44,7 +44,7 @@ print("files:", files)
 
 ORIGINAL_FILENAME_GROUP = "original_filename"
 
-filename_re = re.compile(rf"^(?P<{ORIGINAL_FILENAME_GROUP}>.+)(?:\.new)$")
+filename_re = re.compile(rf"^(?P<{ORIGINAL_FILENAME_GROUP}>.+)(?:\.{args.new})$")
 
 for filename in files:
     match = filename_re.match(filename)
