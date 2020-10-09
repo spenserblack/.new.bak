@@ -5,7 +5,7 @@ description = ".new and .bak file management"
 authors = ["Spenser Black"]
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
+python = "^3.6.2"
 argparse = "^1.4.0"
 
 [tool.poetry.dev-dependencies]
