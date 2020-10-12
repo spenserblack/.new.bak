@@ -4,7 +4,9 @@ python:
   - "3.8"
 cache:
   pip: true
-before_install: pip install poetry
+before_install:
+  - pip install poetry
+  - 'poetry config virtualenvs.create false'
 install: poetry install --no-root
 script:
   - poetry run isort --check main.py
