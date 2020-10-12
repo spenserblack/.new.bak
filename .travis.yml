@@ -7,8 +7,8 @@ cache:
 before_install: pip install poetry
 install: poetry install --no-root
 script:
-- poetry run isort --check main.py
-- poetry run black --check main.py
-- poetry run flake8 main.py
+  - poetry run isort --check main.py
+  - poetry run black --check main.py
+  - poetry run flake8 main.py
 notifications:
   email: false
