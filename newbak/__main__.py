@@ -11,7 +11,7 @@ def main():
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    parser = ArgumentParser()
+    parser = ArgumentParser("newbak")
     parser.add_argument(
         "directory", metavar="DIR", help="the directory to search for files"
     )
