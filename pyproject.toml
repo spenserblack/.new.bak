@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "newbak"
-version = "0.2.0"
+version = "1.1.0"
 description = ".new and .bak file management"
 authors = ["Spenser Black"]
 
