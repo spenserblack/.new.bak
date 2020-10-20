@@ -6,6 +6,12 @@
 Finds all files in a directory with the `.new` extension, adds `.bak` to their corresponding "old"
 files, then strips the `.new` extension.
 
+## Installation
+
+```bash
+pip install git+https://github.com/spenserblack/.new.bak.git@v1.1.0
+```
+
 ## Usage
 
 ```bash
