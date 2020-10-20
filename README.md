@@ -16,13 +16,13 @@ pip install git+https://github.com/spenserblack/.new.bak.git@v1.1.0
 
 ```bash
 # see all CLI options
-./main.py -h
+python -m newbak -h
 
 # rename files and folders in directory dir
-./main.py dir
+python -m newbak dir
 
 # rename files and folders in directory dir recursively
-./main.py -r dir
+python -m newbak -r dir
 ```
 
 ## Example
