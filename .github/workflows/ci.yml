@@ -17,8 +17,8 @@ jobs:
       - name: Install Dependencies
         run: poetry install --no-root
       - name: isort
-        run: poetry run isort --check main.py
+        run: poetry run isort --check newbak/
       - name: black
-        run: poetry run black --check main.py
+        run: poetry run black --check newbak/
       - name: flake8
-        run: poetry run flake8 main.py
+        run: poetry run flake8 newbak/
